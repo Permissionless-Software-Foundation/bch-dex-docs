@@ -6,15 +6,15 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const config = {
-  title: 'Trout\'s Blog',
-  tagline: 'A Place for Trout to Collect His Thoughts',
-  url: 'https://troutsblog.com',
-  baseUrl: '/trouts-blog/',
+  title: 'bch-dex',
+  tagline: 'A Decentralized Exchange for Tokens',
+  url: 'https://bch-dex-docs.fullstack.cash',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
-  organizationName: 'christroutner', // Usually your GitHub org/user name.
-  projectName: 'trouts-blog', // Usually your repo name.
+  organizationName: 'Permissionless-Software-Foundation', // Usually your GitHub org/user name.
+  projectName: 'bch-dex-docs', // Usually your repo name.
 
   presets: [
     [
@@ -24,15 +24,10 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/christroutner/trouts-blog/',
+          editUrl: 'https://github.com/Permissionless-Software-Foundation/bch-dex-docs/',
+          routeBasePath: '/'
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/christroutner/trouts-blog/',
-          blogSidebarCount: 'ALL'
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -44,9 +39,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Trout\'s Blog',
+        title: 'bch-dex',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'PSF',
           src: 'img/favicon.png',
         },
         items: [
@@ -54,11 +49,10 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Research',
+            label: 'Documentation',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/christroutner/trouts-blog',
+            href: 'https://github.com/Permissionless-Software-Foundation/bch-dex',
             label: 'GitHub',
             position: 'right',
           },
