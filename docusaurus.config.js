@@ -74,12 +74,8 @@ const config = {
             title: 'This Site',
             items: [
               {
-                label: 'Research',
-                href: '/docs/intro',
-              },
-              {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Documentation',
+                href: '/',
               }
             ],
           },
