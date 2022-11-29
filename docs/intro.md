@@ -13,9 +13,9 @@ These DEXs let's *individuals* trade tokens in a peer-to-peer fashion. These DEX
 - **trustless** - Neither individual needs to know or trust the other person. There is no way one person can gain an advantage over the other during the trade.
 - **atomic** - There are only two states to a trade. Each person either has their original coins, or the token they are trying to exchange. There is no way the trade can be in a state where funds get stuck.
 
-To get started **Buying** tokens, check out the instructions for using the [Buyer Wallet](#).
+To get started **Buying** tokens, check out the instructions for using the [Buyer Wallet](/usage/buyer-wallet).
 
-To get started **Selling** tokens, checkout out the documentation for setting up a [Seller Wallet](#).
+To get started **Selling** tokens, checkout out the documentation for setting up a [Seller Wallet](/usage/seller-wallet).
 
 The DEX operates as an extension of the Bitcoin protocol. That means there is no '.com' website that can be blocked, no account that can shut down, and no government ID required to use it. It's a peer-to-peer protocol, just like Bitcoin. When you trade, there are only two parties. There is no intermediary. And no one can stop you from running the software in the comfort of your own home.
 
@@ -36,14 +36,14 @@ There are three phases to the trade:
 The [Pay To Write Database (P2WDB)](https://p2wdb.com) is used to store trade data while Alice and Bob negotiate the trade. But any database, even the blockchain itself, can be used to store this data.
 
 ### Signal
-In the first phase, Alice has a token that she wants to sell on the open market. Using the [Seller Wallet](#), she selects the token, the quantity to sell, and at what price. This generates an *Order*, which is tracked by her DEX software. The app also writes the trade data to the pay-to-write database (P2WDB) as an *Offer*. Alice is known as a Maker, because she just *made* an Offer.
+In the first phase, Alice has a token that she wants to sell on the open market. Using the [Seller Wallet](/usage/seller-wallet), she selects the token, the quantity to sell, and at what price. This generates an *Order*, which is tracked by her DEX software. The app also writes the trade data to the pay-to-write database (P2WDB) as an *Offer*. Alice is known as a Maker, because she just *made* an Offer.
 
 ### Watch
-Bob wants to buy tokens, so he uses the [Buyer Wallet](#) to browse tokens for sale on the open market. He sees Alice's listing and clicks the Buy button. His instance of the DEX generates a Counter Offer. This is a partially-signed transaction based on data in the Offer. The Counter Offer is uploaded to the P2WDB.
+Bob wants to buy tokens, so he uses the [Buyer Wallet](/usage/buyer-wallet) to browse tokens for sale on the open market. He sees Alice's listing and clicks the Buy button. His instance of the DEX generates a Counter Offer. This is a partially-signed transaction based on data in the Offer. The Counter Offer is uploaded to the P2WDB.
 
 Bob is known as a Taker, because he just *took* the Offer by generating a Counter Offer.
 
 ### Pay
-Alice's [Seller Wallet](#) is monitoring the P2WDB for Counter Offers. It detects Bob's Counter Offer and validates it, ensuring that the transaction meets the terms she set in the Offer. Because of the rules in the Bitcoin transaction, Alice is not able to manipulate Bob's inputs or outputs. She can only accept or reject the Counter Offer. If the Counter Offer passes validation, her instance of the DEX signs her token input and broadcasts the transaction to the network.
+Alice's [Seller Wallet](/usage/seller-wallet) is monitoring the P2WDB for Counter Offers. It detects Bob's Counter Offer and validates it, ensuring that the transaction meets the terms she set in the Offer. Because of the rules in the Bitcoin transaction, Alice is not able to manipulate Bob's inputs or outputs. She can only accept or reject the Counter Offer. If the Counter Offer passes validation, her instance of the DEX signs her token input and broadcasts the transaction to the network.
 
 The trade is then complete. Alice has the coins and Bob has the tokens. Both parties got what the wanted, and neither party has the opportunity to take advantage of the other (trustless). The trade completes in a single on-chain transaction (atomic), transferring the tokens and coins instantly and at the same time, with no need for escrow or intermediaries.
