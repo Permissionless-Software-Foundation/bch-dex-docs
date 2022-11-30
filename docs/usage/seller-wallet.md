@@ -49,6 +49,26 @@ Once those setup steps are complete, you can begin to sell tokens on the DEX. Th
 
 <iframe width="731" height="411" src="https://www.youtube.com/embed/084N0el6hkg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Selling Tokens
+One the seller software is installed and configured, tokens can be sold by navigating to the 'Tokens' (BCH) or 'eTokens' (XEC) view of the web wallet. Any tokens sent to the wallet will appear here. Inside the token card will be a 'Sell' button. Clicking on that button will open the Sell Modal.
+
+![Selling Tokens](./img/sell-token.png)
+
+The Sell Modal has two text boxes to fill out:
+
+- Sell Qty: This is the quantity of tokens you want to sell.
+- Price per Token: This is the price for a *whole* token.
+
+The 'Price per Token' field often trips people up. This is the price of a *whole* token, not the price of the quantity you are selling.
+
+> Example: If you want to **sell $0.10 of BUX token**, you would fill out the following:
+> - *Sell Qty* of 0.1
+> - *Price Per Token* value of 1.
+
+After filling out the form, click the Sell button. The DEX will generate the token UTXO and list it for sale on the DEX.
+
+![Sell Modal](./img/sell-modal.png)
+
 ## Recovering Funds
 
 Whenever an *Offer* or a *Counter Offer* is generated, the funds are moved to a [child address of the HD wallet](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch05.asciidoc#hd-wallets-bip-32bip-44), to protect the UTXO until the sale has been completed. You can recover those funds and *sweep* them into the root address used by the web wallet by running the [`sweep-wallet.js` script](https://github.com/Permissionless-Software-Foundation/bch-dex/blob/master/production/scripts/sweep-wallet.js) in the `production/scripts` directory:
