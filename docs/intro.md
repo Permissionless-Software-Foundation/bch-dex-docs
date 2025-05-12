@@ -5,7 +5,7 @@ slug: /
 
 # Introduction
 
-The [Permissionless Software Foundation](https://psfoundation.cash) maintains a DEX software on the Bitcoin Cash (BCH) blockchain, which leverages the [SWaP trading protocol](/swap). This protocol let's *individuals* trade tokens in a peer-to-peer fashion. These DEXs have the following properties:
+The [Permissionless Software Foundation](https://psfoundation.cash) maintains a DEX software on the Bitcoin Cash (BCH) blockchain, which leverages the [SWaP trading protocol](/swap). This protocol allows *individuals* to trade tokens in a peer-to-peer fashion. These DEX has the following properties:
 
 - **peer-to-peer** - trades take place between two individuals. There is no company, liquidity pool, or other intermediary between the two.
 - **trustless** - Neither individual needs to know or trust the other person. There is no way one person can gain an advantage over the other during the trade.
