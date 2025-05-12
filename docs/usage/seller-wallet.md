@@ -4,53 +4,23 @@ sidebar_position: 2
 
 # Seller Wallet
 
-Selling tokens requires a significant level of setup. It's hoped that an Android app for selling tokens will be developed in the future, but currently it requires a computer running Ubuntu Linux. A seller's software must be online in order to respond to Counter Offers from buyers.
+There are two actors required for selling tokens:
+- *Servers* are a running instance of the [Server software](/usage/server). One Server can support many Sellers.
+- *Sellers* are users of the Server. They have a joint-custody 12-word mnemonic the Seller shares with the Server.
 
-## Prerequisites
+[Running a Server](/usage/server) requires a significant level of setup. Currently it requires a computer running Ubuntu Linux. A Server can support a single Seller, or many Sellers. A Seller's software must be online in order to respond to Counter Offers from Buyers.
 
-The setup video below assumes you are starting with an Ubuntu Linux computer that has node.js, Docker, and Docker Compose installed. This list of links will help you install these prerequisites on your own Ubuntu installation.
+The easiest way to become a Seller of SLP tokens is to find someone running a Server and ask for permission to create an account. If you don't know anyone running a Server, you'll need to follow the instructions to [setup your own Server](/usage/server).
 
-- [Install Docker and other software](https://youtu.be/w5mpwX4vUIg) based on [these instructions](https://gist.github.com/christroutner/a39f656850dc022b60f25c9663dd1cdd)
-
-## Overview
-Running the DEX Seller wallet requires composition of these different software packages. These software packages are orchestrated using Docker and Docker Compose.
-
-- [bch-dex](https://github.com/Permissionless-Software-Foundation/bch-dex) or [xec-dex](https://github.com/Permissionless-Software-Foundation/xec-dex) - This repository is the back end software that tracks trade data on the network, generates Offers and Counter Offers, and finalizes trades by accepting Counter Offers.
-- [bch-dex-ui](https://github.com/Permissionless-Software-Foundation/bch-dex-ui) or [ecash-dex-ui](https://github.com/Permissionless-Software-Foundation/ecash-dex-ui) is a graphical user interface (GUI) for the DEX, otherwise known as the Seller wallet.
-- [P2WDB](https://p2wdb.com) is a censorship-resistant database used to communicate trade data between peers running bch-dex.
-- [IPFS](https://ipfsio) is a censorship-resistant network for communicating data over the internet.
-- [MongoDB](https://www.mongodb.com/) is a database used by both P2WDB and the DEX to store and manage local data.
-
-## Installation
-If you are selling tokens on the Bitcoin Cash blockchain, you'll want to clone the [bch-dex](https://github.com/Permissionless-Software-Foundation/bch-dex) repository with these commands:
-
-- `git clone https://github.com/Permissionless-Software-Foundation/bch-dex`
-- `cd bch-dex`
-
-If you are selling tokens on the eCash blockchain, you'll want to clone the [xec-dex](https://github.com/Permissionless-Software-Foundation/xec-dex) repository with these commands:
-
-- `git clone https://github.com/Permissionless-Software-Foundation/xec-dex`
-- `cd xec-dex`
-
-The installation of either blockchain is identical from this point. Follow the instructions in the video. For step-by-step written instructions, read through the README instructions for the repository of your chosen blockchain.
-
-From a high level, the following steps are required:
-
-- Install npm dependencies
-- Create a new wallet for the DEX
-- Pull down the Docker images
-- Briefly run the Docker containers in order generate the IPFS config file
-- Edit the IPFS config file to open port 5001
-- Start the Docker containers and wait for the P2WDB and DEX to sync
-- Open the Seller Wallet UI at http://localhost:4500
-- Port the DEX wallet 12-word mnemonic into the Seller Wallet UI
-
-Once those setup steps are complete, you can begin to sell tokens on the DEX. The video below walks through the above steps.
-
-<iframe width="731" height="411" src="https://www.youtube.com/embed/084N0el6hkg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+The following instruction assume that you have an account on a Server.
 
 ## Selling Tokens
-One the seller software is installed and configured, tokens can be sold by navigating to the 'Tokens' (BCH) or 'eTokens' (XEC) view of the web wallet. Any tokens sent to the wallet will appear here. Inside the token card will be a 'Sell' button. Clicking on that button will open the Sell Modal.
+
+Log into the Server using your email and password.
+
+![Login](./img/login.png)
+
+Once logged in, tokens can be sold by navigating to the 'Tokens' (BCH) view of the web wallet. Any SLP tokens sent to the wallet will appear here. Inside the token card will be a 'Sell' button. Clicking on that button will open the Sell Modal.
 
 ![Selling Tokens](./img/sell-token.png)
 
@@ -70,6 +40,8 @@ After filling out the form, click the Sell button. The DEX will generate the tok
 ![Sell Modal](./img/sell-modal.png)
 
 ## Recovering Funds
+
+**TODO: This section need to be developed and updated. Text below is for an older version of bch-dex.**
 
 Whenever an *Offer* or a *Counter Offer* is generated, the funds are moved to a [child address of the HD wallet](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch05.asciidoc#hd-wallets-bip-32bip-44), to protect the UTXO until the sale has been completed. You can recover those funds and *sweep* them into the root address used by the web wallet by running the [`sweep-wallet.js` script](https://github.com/Permissionless-Software-Foundation/bch-dex/blob/master/production/scripts/sweep-wallet.js) in the `production/scripts` directory:
 
