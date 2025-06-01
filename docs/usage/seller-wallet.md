@@ -14,6 +14,9 @@ The easiest way to become a Seller of SLP tokens is to find someone running a Se
 
 The following instruction assume that you have an account on a Server.
 
+<iframe width="639" height="359" src="https://www.youtube.com/embed/0ewHPlb57KM" title="Selling NFTs (simple)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
+
+
 ## Selling Tokens
 
 Log into the Server using your email and password.
