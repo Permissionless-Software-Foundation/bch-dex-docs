@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Buying tokens requires no special setup. It's much easier than selling tokens.
 
-- [DEX Buyer Wallet App](https://dex.psfoundation.ifno)
+- [DEX Buyer Wallet App](https://dex.psfoundation.info)
 
 The [source code](https://github.com/Permissionless-Software-Foundation/bch-dex-taker-v2) for the app above is available on Github. Anyone can run their own copy of the DEX Buyer Wallet App.
 
