@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'bch-dex',
   tagline: 'A Decentralized Exchange for Tokens',
-  url: 'https://bch-dex-docs.fullstack.cash',
+  url: 'https://dex-docs.fullstackcash.net',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

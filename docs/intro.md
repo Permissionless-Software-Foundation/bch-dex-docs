@@ -15,6 +15,6 @@ The [Permissionless Software Foundation](https://psfoundation.cash) maintains a 
 
 There are two different versions of the DEX software:
 
-- The [Buyer web wallet](/usage/buyer-wallet) is a *non-custodial* wallet that lets you browse and purchase tokens for sale on the network. Simply load the wallet with enough BCH and click the *Buy* button on a listed token. If the Seller software is live on the network, you'll soon have your token.
+- The [Buyer web wallet](https://dex-buyer.fullstackcash.net) is a *non-custodial* wallet that lets you browse and purchase tokens for sale on the network. Simply load the wallet with enough BCH and click the *Buy* button on a listed token. If the Seller software is live on the network, you'll soon have your token.
 
-- The [Seller wallet](/usage/seller-wallet) has one little catch: the Seller's software needs to be online in order to finalize the sale. To solve this problem, a single person can run a Server and provide *joint-custody* of a wallet with a Seller. Anyone can run a Server, which stays online and provides a good experience for both Sellers and Buyers. A Server can provide multiple Seller accounts.
+- The [Seller wallet](https://dex-seller.fullstackcash.net) has one little catch: the Seller's software needs to be online in order to finalize the sale. To solve this problem, a single person can run a Server and provide *joint-custody* of a wallet with a Seller. Anyone can run a Server, which stays online and provides a good experience for both Sellers and Buyers. A Server can provide multiple Seller accounts.
