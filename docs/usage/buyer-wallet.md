@@ -6,9 +6,38 @@ sidebar_position: 1
 
 Buying tokens requires no special setup. It's much easier than selling tokens.
 
-- [DEX Buyer Wallet App](https://dex.psfoundation.info)
+- [DEX Buyer Wallet App](https://dex-buyer.fullstackcash.net)
+- [DEX Seller Wallet App](https://dex-seller.fullstackcash.net)
 
 The [source code](https://github.com/Permissionless-Software-Foundation/bch-dex-taker-v2) for the app above is available on Github. Anyone can run their own copy of the DEX Buyer Wallet App.
+
+### Self-Hosting the Buyer Wallet
+
+If you want to run your own instance of the Buyer Wallet, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Permissionless-Software-Foundation/bch-dex-taker-v2
+   cd bch-dex-taker-v2
+   ```
+
+2. Configure the API server URL in `.env.production`:
+   ```
+   REACT_APP_DEX_SERVER=https://dex-api.yourdomain.com
+   REACT_APP_NOSTR_REST_API_URL=https://nostr.yourdomain.com
+   ```
+
+3. Build the app:
+   ```bash
+   npm install
+   npm run build
+   ```
+
+4. Serve the `build/` directory with any web server (nginx, Apache, etc.).
+
+### Nostr Relay
+
+The DEX uses Nostr relays to broadcast and discover trade signals (Orders and Offers). The Buyer and Seller apps communicate with a Nostr relay via a REST API. By default, the apps use the PSF community Nostr relay. If you run your own Nostr relay, update the `REACT_APP_NOSTR_REST_API_URL` environment variable to point to your relay.
 
 ## Back Up Your Wallet
 The first time you load the Buyer Wallet app in your browser, it will generate a wallet for you. It's very important that you back up your wallet, by writing down your 12 word mnemonic, in case you ever need to recover your funds. Do not rely on the web browser to save your wallet information.

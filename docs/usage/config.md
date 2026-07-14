@@ -80,3 +80,42 @@ The `IPFS_GATEWAY` environment variable is used to retrieve data about tokens. T
 - `export IPFS_GATEWAY=https://p2wdb-gateway-678.fullstack.cash/ipfs/`
 
 The above URL is a gateway for retrieving data that is pinned using the P2WDB Pinning Service.
+
+## Operator Configuration
+
+The DEX supports an operator fee model, where a configurable percentage of each trade is sent to an operator address. This is useful for server operators who want to monetize their infrastructure.
+
+- **OPERATOR_ADDRESS**: The BCH address that receives the operator fee from each trade.
+  - `export OPERATOR_ADDRESS=bitcoincash:qzauj67nsqqmtu2pql7wcak3ct7lu2fppqkj0xwvwl`
+- **OPERATOR_PERCENTAGE**: The percentage of each trade that goes to the operator, as a decimal number (e.g., 10.0 = 10%).
+  - `export OPERATOR_PERCENTAGE=10.0`
+
+These variables are typically set in the `start-production.sh` script inside the Docker container.
+
+## Front End Configuration
+
+The Seller front end (dex-ui) and Buyer front end (bch-dex-taker-v2) have their own configuration via environment variables set in `.env.production` files.
+
+### Seller Front End (dex-ui)
+
+The Seller UI is a React app built inside a Docker container. It uses the following environment variables:
+
+- **REACT_APP_DEX_SERVER**: The URL of the DEX backend API server.
+  - `REACT_APP_DEX_SERVER=https://dex-api.yourdomain.com`
+- **REACT_APP_NOSTR_REST_API_URL**: The REST API endpoint for Nostr relay interactions.
+  - `REACT_APP_NOSTR_REST_API_URL=https://nostr.yourdomain.com`
+- **SERVER** (Docker environment variable): Tells the nginx inside the container where to proxy API requests. This is set in `docker-compose.yml`.
+  - `SERVER: 'http://172.17.0.1'` (points to the Docker host's port 5700)
+
+### Buyer Front End (bch-dex-taker-v2)
+
+The Buyer UI is a standalone React app (not Dockerized). It uses the same `REACT_APP_DEX_SERVER` and `REACT_APP_NOSTR_REST_API_URL` environment variables in its `.env.production` file.
+
+### Important Note on Domain Names
+
+When configuring the front end apps, ensure the API server URL uses the correct domain. A common mistake is using `.cash` instead of `.cash` (or vice versa). For example:
+
+- ✅ Correct: `https://dex-api.fullstackcash.net`
+- ❌ Wrong: `https://dex-api.fullstack.cash`
+
+If the front end points to the wrong domain, it will fail to communicate with the backend API. After changing these values, the app must be rebuilt (`npm run build`) for the changes to take effect.
